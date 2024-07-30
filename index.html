@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responcive.css">
+
+</head>
+
+<body>
+
+    <audio id="my_audio" src="img/happy-diwali.mp3" loop="loop"></audio>
+
+
+    <h1 class="hading-1">Happy Deewali</h1>
+
+
+    <div class="container">
+        <h1 id="headline">Comming soon deewali</h1>
+        <div id="countdown">
+            <ul>
+                <li class="days"><span class="days" id="days"></span>days</li>
+                <li class="hours"><span class="hours" id="hours"></span>Hours</li>
+                <li class="minutes"><span class="minutes" id="minutes"></span>Minutes</li>
+                <li class="seconds"><span class="seconds" id="seconds"></span>Seconds</li>
+            </ul>
+        </div>
+        <div id="content" class="emoji">
+            <span>🥳</span>
+            <span>🎉</span>
+            <span>🎂</span>
+        </div>
+    </div>
+
+    <div class="wishes-div">
+        <p class="pera-1">
+            Wishing you happiness this Diwali.
+        </p>
+
+        <p class="pera-2">
+            May your Diwali be full of fun and light.
+        </p>
+
+        <p class="pera-1">
+            May your Diwali be filled with laughter.
+        </p>
+
+        <p class="pera-2">
+            Wishing you a glowing Diwali!
+        </p>
+    </div>
+
+    <div class="card-view">
+        <span>This wishes from :</span>
+        <span class="bime">- Harish Gurjar</span>
+    </div>
+
+
+    <img src="img/falower.png" alt="" class="falower-1">
+
+
+
+    <script>
+
+        //  for audio    --------------------
+
+        window.onload = function () {
+            document.getElementById("my_audio").play();
+        }
+
+
+            //  for come downe  -------------------------
+
+            (function () {
+                const second = 1000,
+                    minute = second * 60,
+                    hour = minute * 60,
+                    day = hour * 24;
+
+                //I'm adding this section so I don't have to keep updating this pen every year :-)
+                //remove this if you don't need it
+                let today = new Date(),
+                    dd = String(today.getDate()).padStart(2, "0"),
+                    mm = String(today.getMonth() + 1).padStart(2, "0"),
+                    yyyy = today.getFullYear(),
+                    nextYear = yyyy + 1,
+                    dayMonth = "11/12/",
+                    birthday = dayMonth + yyyy;
+
+                today = mm + "/" + dd + "/" + yyyy;
+                if (today > birthday) {
+                    birthday = dayMonth + nextYear;
+                }
+                //end
+
+                const countDown = new Date(birthday).getTime(),
+                    x = setInterval(function () {
+
+                        const now = new Date().getTime(),
+                            distance = countDown - now;
+
+                        document.getElementById("days").innerText = Math.floor(distance / (day)),
+                            document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+                            document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+                            document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+                        //do something later when date is reached
+                        if (distance < 0) {
+                            document.getElementById("headline").innerText = "It's my birthday!";
+                            document.getElementById("countdown").style.display = "none";
+                            document.getElementById("content").style.display = "block";
+                            clearInterval(x);
+                        }
+                        //seconds
+                    }, 0)
+            }());
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+
+
+@media screen and (m-width: 480px) {
+    body {width: 200px; float: left;}
+    /* #main {margin-left: 216px;} */
+  }
+
+  @media (max-width: 1250px) {
+    body{
+        width: 100%;
+        
+        background-image: none;
+        background-color: black;
+    }
+
+    .hading-1{
+        font-size: 3rem;
+        margin: 10%;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        animation: none;
+    }
+
+    .container{
+        position: relative;
+        top: 0px;
+        left: 0px;
+    }
+    .container li{
+        font-size: 15px;
+        margin: 0px;
+    }
+
+    .container li span{
+        /* display: none; */
+    }
+
+    .wishes-div{
+        position: relative;
+        top: 0px;
+        left: 0px;
+    }
+
+    .wishes-div p{
+        font-size: 15px;
+        animation: none;
+    }
+    .falower-1{
+        display: none;
+    }
+  }
+  
